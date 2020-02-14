@@ -69,6 +69,13 @@ mixin _$HomeController on _HomeBase, Store {
     return _$getContactAsyncAction.run(() => super.getContact());
   }
 
+  final _$editAsyncAction = AsyncAction('edit');
+
+  @override
+  Future edit(ContactModel c) {
+    return _$editAsyncAction.run(() => super.edit(c));
+  }
+
   final _$_HomeBaseActionController = ActionController(name: '_HomeBase');
 
   @override
@@ -96,16 +103,6 @@ mixin _$HomeController on _HomeBase, Store {
     final _$actionInfo = _$_HomeBaseActionController.startAction();
     try {
       return super.add(c);
-    } finally {
-      _$_HomeBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic edit(ContactModel c) {
-    final _$actionInfo = _$_HomeBaseActionController.startAction();
-    try {
-      return super.edit(c);
     } finally {
       _$_HomeBaseActionController.endAction(_$actionInfo);
     }

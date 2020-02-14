@@ -22,7 +22,7 @@ class ContactListWidget extends StatelessWidget {
         return Dismissible(
           key: UniqueKey(),
           direction: DismissDirection.endToStart,
-          background:  Container(
+          background: Container(
             color: Colors.red,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -40,7 +40,9 @@ class ContactListWidget extends StatelessWidget {
             onTap: () {
               Modular.to.pushNamed('/details/${contact.id}');
             },
-            title: Text(contact.fullName),
+            title: Observer(builder: (_) {
+              return Text(contact.fullName);
+            }),
           ),
         );
       },
