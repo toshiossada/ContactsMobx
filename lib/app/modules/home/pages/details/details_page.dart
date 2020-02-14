@@ -50,11 +50,11 @@ class _DetailsPageState extends ModularState<DetailsPage, DetailsController> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.save),
-        onPressed: () {
+        onPressed: () async {
           if (widget.id == null)
             _homeController.add(controller.contact);
           else
-            _homeController.edit(controller.contact);
+            await _homeController.edit(controller.contact);
           Modular.to.pop();
         },
       ),

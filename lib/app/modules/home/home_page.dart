@@ -52,7 +52,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Observer(
         builder: (_) {
           return ContactListWidget(
-            itemCount: controller.contactsFilteredLength,
+            itemCount: controller.contactsFiltered.length,
             showMessage: () {
               _scaffoldKey.currentState.showSnackBar(snackBar);
             },
