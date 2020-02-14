@@ -40,9 +40,7 @@ class ContactListWidget extends StatelessWidget {
             onTap: () {
               Modular.to.pushNamed('/details/${contact.id}');
             },
-            title: Observer(builder: (_) {
-              return Text(contact.fullName);
-            }),
+            title: Text(contact.fullName),
           ),
         );
       },
