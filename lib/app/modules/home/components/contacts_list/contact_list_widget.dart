@@ -1,16 +1,14 @@
-import 'package:contatos_mobx/app/modules/home/home_controller.dart';
+import 'package:contatos_mobx/app/modules/home/models/contact_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'dissmissd_background/dissmissd_background_widget.dart';
 
 class ContactListWidget extends StatelessWidget {
   final int itemCount;
-  final HomeController controller = Modular.get();
-  final Function showMessage;
-
-  ContactListWidget({Key key, this.itemCount, this.showMessage})
+  final Function onRemove;
+  final List<ContactModel> list;
+  ContactListWidget({Key key, this.itemCount, this.onRemove, this.list})
       : super(key: key);
 
   @override
@@ -18,7 +16,7 @@ class ContactListWidget extends StatelessWidget {
     return ListView.builder(
       itemCount: itemCount,
       itemBuilder: (_, i) {
-        var contact = controller.contactsFiltered[i];
+        var contact = list[i];
         return Dismissible(
           key: UniqueKey(),
           direction: DismissDirection.endToStart,
@@ -31,9 +29,7 @@ class ContactListWidget extends StatelessWidget {
           ),
           onDismissed: (direction) {
             if (direction == DismissDirection.endToStart) {
-              controller.remove(contact.id);
-
-              showMessage();
+              onRemove(contact.id);
             }
           },
           child: ListTile(
