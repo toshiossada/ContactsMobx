@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:contatos_mobx/app/modules/home/models/contact_model.dart';
 import 'package:mobx/mobx.dart';
 
@@ -7,17 +9,24 @@ class DetailsController = _DetailsBase with _$DetailsController;
 
 abstract class _DetailsBase with Store {
   @observable
-  ContactModel contact = ContactModel();
+  ContactModel contact;
 
   @action
   setItem(ContactModel v) {
-    contact.id = v.id;
-    contact.name = v.name;
-    contact.lastname = v.lastname;
+    contact = v.copyWith();
   }
 
   @action
   changeName(String v) => contact.name = v;
   @action
-  changeLastname(String v) => contact.lastname = v;
+  changeLastName(String v) => contact.lastName = v;
+  @action
+  changeEmail(String v) => contact.email = v;
+  @action
+  changeTelephone(String v) => contact.tel = v;
+  @action
+  changeImage(File file) {
+    if (file == null) return;
+    contact = contact.copyWith(image: file.path);
+  }
 }

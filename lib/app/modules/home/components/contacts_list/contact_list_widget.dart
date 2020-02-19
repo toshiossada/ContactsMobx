@@ -1,6 +1,6 @@
+import 'package:contatos_mobx/app/modules/home/components/contacts_list/contact_item/contact_item_widget.dart';
 import 'package:contatos_mobx/app/modules/home/models/contact_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import 'dissmissd_background/dissmissd_background_widget.dart';
 
@@ -32,11 +32,30 @@ class ContactListWidget extends StatelessWidget {
               onRemove(contact.id);
             }
           },
-          child: ListTile(
-            onTap: () {
-              Modular.to.pushNamed('/details/${contact.id}');
-            },
-            title: Text(contact.fullName),
+          child: Container(
+            width: MediaQuery.of(context).size.width - 30,
+            padding: EdgeInsets.only(
+              left: 9,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(17),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey, blurRadius: 7, offset: Offset(2, 1))
+                ]),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(17.0),
+                  bottomRight: Radius.circular(17.0),
+                  topLeft: Radius.circular(4.0),
+                  bottomLeft: Radius.circular(4.0),
+                ),
+              ),
+              child: ContactItemWidget(contact: contact),
+            ),
           ),
         );
       },

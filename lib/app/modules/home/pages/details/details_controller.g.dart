@@ -49,10 +49,40 @@ mixin _$DetailsController on _DetailsBase, Store {
   }
 
   @override
-  dynamic changeLastname(String v) {
+  dynamic changeLastName(String v) {
     final _$actionInfo = _$_DetailsBaseActionController.startAction();
     try {
-      return super.changeLastname(v);
+      return super.changeLastName(v);
+    } finally {
+      _$_DetailsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeEmail(String v) {
+    final _$actionInfo = _$_DetailsBaseActionController.startAction();
+    try {
+      return super.changeEmail(v);
+    } finally {
+      _$_DetailsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeTelephone(String v) {
+    final _$actionInfo = _$_DetailsBaseActionController.startAction();
+    try {
+      return super.changeTelephone(v);
+    } finally {
+      _$_DetailsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeImage(File file) {
+    final _$actionInfo = _$_DetailsBaseActionController.startAction();
+    try {
+      return super.changeImage(file);
     } finally {
       _$_DetailsBaseActionController.endAction(_$actionInfo);
     }

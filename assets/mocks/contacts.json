@@ -2,21 +2,29 @@
     {
         "id": 1,
         "name": "Toshi",
-        "lastname": "Ossada"
+        "lastName": "Ossada",
+        "email": "toshiossada@gmail.com",
+        "tel": "19991200273"
     },
     {
         "id": 2,
-        "name": "Wescley",
-        "lastname": "Sudré"
+        "name": "Dollinho",
+        "lastName": "Sudré",
+        "email": "dollynho@gmail.com",
+        "tel": "19999999999"
     },
     {
         "id": 3,
         "name": "Peterson",
-        "lastname": "Souza"
+        "lastName": "Souza",
+        "email": "peter@gmail.com",
+        "tel": "19999999999"
     },
     {
         "id": 4,
         "name": "Bianca",
-        "lastname": "Issa"
+        "lastName": "Issa",
+        "email": "biancaissa@gmail.com",
+        "tel": "19999999999"
     }
 ]
